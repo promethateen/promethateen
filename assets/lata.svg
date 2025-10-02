@@ -1,0 +1,58 @@
+<!-- Mr Robot style glitch banner for @promethateen -->
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#111"/>
+    </linearGradient>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#00000033"/>
+    </pattern>
+    <filter id="glitch">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="5" result="noisy"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feDisplacementMap in="SourceGraphic" in2="noisy" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      @keyframes flicker {0%,19%,21%,23%,25%,54%,56%,100%{opacity:1}20%,24%,55%{opacity:.75}}
+      @keyframes glitch-x {0%{transform:translateX(0)}20%{transform:translateX(-2px)}40%{transform:translateX(2px)}60%{transform:translateX(-1px)}80%{transform:translateX(1px)}100%{transform:translateX(0)}}
+      @keyframes glitch-y {0%{transform:translateY(0)}25%{transform:translateY(-1px)}50%{transform:translateY(1px)}75%{transform:translateY(-2px)}100%{transform:translateY(0)}}
+      .title,.shadow,.sliceR,.sliceC{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;letter-spacing:2px;text-transform:uppercase;paint-order:stroke fill}
+      .title{font-size:72px;fill:#ff2b2b;stroke:#8b0000;stroke-width:1.5;filter:url(#glow);animation:flicker 3.2s infinite}
+      .subtitle{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:22px;letter-spacing:4px;fill:#c7c7c7;opacity:.9}
+      .shadow{font-size:72px;fill:#000;stroke:#000;stroke-width:6;opacity:.8}
+      .sliceR{font-size:72px;fill:#00ffff;mix-blend-mode:screen;animation:glitch-x 1.4s infinite steps(2),glitch-y 2s infinite steps(2)}
+      .sliceC{font-size:72px;fill:#00ff66;mix-blend-mode:screen;animation:glitch-y 1.6s infinite steps(2),glitch-x 1.8s infinite steps(2)}
+      .mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;fill:#9a9a9a;opacity:.7}
+    </style>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#scan)" opacity="0.12"/>
+
+  <!-- cyber corners -->
+  <g opacity="0.35">
+    <rect x="30" y="30" width="60" height="2" fill="#ff2b2b"/>
+    <rect x="30" y="30" width="2" height="60" fill="#ff2b2b"/>
+    <rect x="1110" y="30" width="60" height="2" fill="#ff2b2b"/>
+    <rect x="1168" y="30" width="2" height="60" fill="#ff2b2b"/>
+    <rect x="30" y="238" width="2" height="32" fill="#ff2b2b"/>
+    <rect x="30" y="268" width="60" height="2" fill="#ff2b2b"/>
+    <rect x="1168" y="238" width="2" height="32" fill="#ff2b2b"/>
+    <rect x="1110" y="268" width="60" height="2" fill="#ff2b2b"/>
+  </g>
+
+  <!-- EDIT BELOW IF YOU WANT -->
+  <text x="600" y="150" text-anchor="middle" class="shadow">HELLO, FRIEND</text>
+  <text x="600" y="150" text-anchor="middle" class="sliceR">HELLO, FRIEND</text>
+  <text x="600" y="150" text-anchor="middle" class="sliceC">HELLO, FRIEND</text>
+  <text x="600" y="150" text-anchor="middle" class="title">HELLO, FRIEND</text>
+
+  <text x="600" y="195" text-anchor="middle" class="subtitle">WELCOME TO @PROMETHATEEN</text>
+
+  <text x="40" y="285" class="mono">/usr/bin/login: access granted ▓▓▓▓▓▓▓▓▓▓ 100%</text>
+</svg>
